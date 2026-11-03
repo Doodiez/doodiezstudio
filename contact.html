@@ -94,6 +94,8 @@
       <form class="form" id="contactForm" action="https://formsubmit.co/mioriman222@gmail.com" method="POST" novalidate>
         <input type="hidden" name="_subject" value="New message from doodiezstudio.com">
         <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://doodiezstudio.com/contact.html?sent=1">
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="field">
           <label for="f-name">Name</label>
@@ -150,27 +152,39 @@
       if (first) first.focus();
       return !first;
     }
+    const showSent = () => {
+      status.className = 'status ok';
+      status.textContent = t('Message sent. Thanks, I’ll reply to your email soon.');
+    };
+    // Coming back from the standard (non-JavaScript) send
+    if (new URLSearchParams(location.search).get('sent') === '1') showSent();
+
+    let fallback = false;
     form.addEventListener('submit', async e => {
+      if (fallback) return;               // let the browser send the form normally
       e.preventDefault();
       status.className = 'status';
       status.textContent = '';
       if (!validate()) return;
       btn.disabled = true; btn.textContent = t('Sending…');
+      let data = null;
       try {
         const res = await fetch('https://formsubmit.co/ajax/mioriman222@gmail.com', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(Object.fromEntries(new FormData(form)))
         });
-        if (!res.ok) throw new Error();
-        form.reset();
-        status.className = 'status ok';
-        status.textContent = t('Message sent. Thanks, I’ll reply to your email soon.');
-      } catch (err) {
-        status.className = 'status bad';
-        status.innerHTML = t('Your message didn’t send. Check your connection and try again, or email') + ' <a href="mailto:mioriman222@gmail.com">mioriman222@gmail.com</a>.';
+        data = await res.json().catch(() => null);
+      } catch (err) {}
+      const ok = data && (data.success === true || data.success === 'true');
+      if (ok) {
+        form.reset(); showSent();
+        btn.disabled = false; btn.textContent = t('Send message');
+        return;
       }
-      btn.disabled = false; btn.textContent = t('Send message');
+      // Quick send didn't work: send the normal way instead (opens FormSubmit, then comes back here)
+      fallback = true;
+      form.submit();
     });
   });
   </script>
