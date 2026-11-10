@@ -76,7 +76,14 @@
     'Client and study projects for food brands, a photo studio, cafés and gaming communities. Tap any piece to view it full size.': 'Projek pelanggan dan pengajian untuk jenama makanan, studio foto, kafe dan komuniti permainan. Tekan mana-mana hasil kerja untuk melihat saiz penuh.',
 
     // Projects page
-    'Apps and games I design and build myself. Both apps below are free, and their downloads and source code are on GitHub.': 'Aplikasi dan permainan yang saya reka dan bina sendiri. Kedua-dua aplikasi di bawah adalah percuma, dan muat turun serta kod sumbernya ada di GitHub.',
+    'Apps and games I design and build myself. All three apps below are free, and their downloads and source code are on GitHub.': 'Aplikasi dan permainan yang saya reka dan bina sendiri. Ketiga-tiga aplikasi di bawah adalah percuma, dan muat turun serta kod sumbernya ada di GitHub.',
+    'Background remover for Windows': 'Pembuang latar belakang untuk Windows',
+    'Drop in product photos and get clean, poster-ready transparent PNGs. It runs offline, on your own graphics card.': 'Masukkan foto produk dan dapatkan PNG lut sinar yang bersih, sedia untuk poster. Ia berfungsi tanpa internet, menggunakan kad grafik anda sendiri.',
+    'Made for design work: clients send product photos with messy backgrounds, and every poster starts with cutting them out by hand. Syrion Cut does whole folders at once, then lets you fix edge colours, clean up haze, add sticker outlines and upscale small photos for print.': 'Dibina untuk kerja rekaan: pelanggan menghantar foto produk dengan latar belakang bersepah, dan setiap poster bermula dengan memotongnya secara manual. Syrion Cut memproses seluruh folder sekaligus, kemudian membolehkan anda membaiki warna tepi, membuang kabus, menambah garisan pelekat dan membesarkan foto kecil untuk cetakan.',
+    "Your photos never leave your computer. There's no account, upload or subscription. A before and after slider and zoom up to 3200% make it easy to check every edge.": 'Foto anda tidak pernah meninggalkan komputer anda. Tiada akaun, muat naik atau langganan. Gelangsar sebelum dan selepas serta zum sehingga 3200% memudahkan anda menyemak setiap tepi.',
+    'Tauri and Rust': 'Tauri dan Rust',
+    'Sticker preset on a poster colour': 'Pratetap pelekat pada warna poster',
+    'App icon': 'Ikon aplikasi',
     'Music player for Windows': 'Pemain muzik untuk Windows',
     'In-game notes overlay': 'Nota di atas skrin permainan',
     'A free music player where a pixel character named Doodle lives in a cosy room and dances to whatever you play.': 'Pemain muzik percuma di mana watak piksel bernama Doodle tinggal dalam bilik yang selesa dan menari mengikut lagu yang anda mainkan.',

@@ -391,3 +391,7 @@ nav.main{margin-right:16px}
 .quick-btn.wa small{color:#0B4A2E}
 .quick-btn.wa:hover{background:#2FE374;border-color:#2FE374}
 @media (max-width:900px){.quick{margin-top:28px}}
+@media (min-width:901px){
+  .proj-teaser{grid-template-columns:repeat(3,1fr)}
+  .proj-shots:has(> :nth-child(2):last-child){grid-template-columns:repeat(2,1fr)}
+}
