@@ -400,3 +400,32 @@ nav.main{margin-right:16px}
 /* Phones: header fits logo + three 44px buttons */
 @media (max-width:480px){.bar{gap:8px}.nav-right{gap:8px}}
 @media (max-width:350px){.nav-right{gap:4px}}
+
+/* ===== Motion (assets/motion.js adds .motion to <html> unless reduced motion is on) ===== */
+:root{--ease-out:cubic-bezier(.22,1,.36,1)}
+@keyframes chUp{from{transform:translateY(105%)}to{transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+/* Hero: wordmark letters rise one after another; the lines around it follow */
+.motion .wordmark{opacity:1;transform:none;animation:none}
+.motion .wordmark .ch{display:inline-block;white-space:pre;transform:translateY(105%);animation:chUp .7s var(--ease-out) calc(var(--i) * 35ms + .1s) both}
+.motion .hero-top > *{animation:fadeUp .6s var(--ease-out) both}
+.motion .hero-top > .avail{animation-delay:.12s}
+.motion .hero-meta{animation:fadeUp .6s var(--ease-out) .55s both}
+.motion .page-head h1,.motion .contact-main h1{animation:fadeUp .7s var(--ease-out) both}
+.motion .page-head p,.motion .contact-main .intro{animation:fadeUp .6s var(--ease-out) .12s both}
+/* Scroll reveal: once, 24px, under half a second */
+.motion .rv{opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease-out) var(--d,0ms),transform .5s var(--ease-out) var(--d,0ms)}
+.motion .rv.in{opacity:1;transform:none}
+.motion .cat.rv{transition:opacity .5s var(--ease-out) var(--d,0ms),transform .5s var(--ease-out) var(--d,0ms),padding-left .25s}
+/* Press feedback on buttons and chips */
+.btn,.chip,.copy,.quick-btn,.theme-btn,.lang-btn,.menu-btn{transition-property:opacity,background-color,border-color,color,scale;transition-duration:.15s}
+.btn:active,.chip:active,.copy:active,.quick-btn:active,.theme-btn:active,.lang-btn:active,.menu-btn:active{scale:.97}
+/* Category preview window that follows the cursor (mouse only) */
+.peek{position:fixed;left:0;top:0;z-index:30;width:240px;aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:var(--surface);pointer-events:none;opacity:0;scale:.9;transition:opacity .18s var(--ease-out),scale .24s var(--ease-out);box-shadow:0 2px 4px rgba(0,0,0,.12),0 16px 32px rgba(0,0,0,.28)}
+.peek.on{opacity:1;scale:1}
+.peek-reel{transition:transform .24s cubic-bezier(.2,.85,.25,1)}
+.peek-reel img{width:100%;height:calc(100% / 5);object-fit:cover}
+.cat h3{transition:color .15s}
+@media (hover:hover) and (pointer:fine){.cats:hover .cat h3{color:var(--graphite)}.cats .cat:hover h3{color:var(--ink)}}
+@media (prefers-reduced-motion:reduce){.peek{display:none}}
+@media (prefers-reduced-motion:reduce){.wordmark{opacity:1;transform:none}}
